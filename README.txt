@@ -1,32 +1,23 @@
-Massively by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+This is the source code for my personal portfolio, hosted with GitHub Pages at heurysg.github.io
 
+About Me
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This is Massively, a text-heavy, article-oriented design built around a huge background
-image (with a new parallax implementation I'm testing) and scroll effects (powered by
-Scrollex). A *slight* departure from all the one-pagers I've been doing lately, but one
-that fulfills a few user requests and makes use of some new techniques I've been wanting
-to try out. Enjoy it :)
+I’m a Product Manager & Data Analyst with a background in physics and a Master’s in Analytics (Georgia Tech, 2025).
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+I focus on:
+Game economy design and LiveOps strategy
+Experimentation & A/B testing
+Data-driven decision making with SQL, Python, and Tableau
 
-(* = not included)
+The site includes - 
 
-AJ
-aj@lkn.io | @ajlkn
+Introduction / About Me: quick overview of my background and interests.
 
+Projects: write-ups on work I’ve done, including:
 
-Credits:
+Game economy overhauls (Disney Heroes, Legendary: Game of Heroes, NFL Rivals to name a few)
 
-	Demo Images:
-		Unsplash (unsplash.com)
+Machine learning models (League of Legends outcome prediction, investment forecasting)
 
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Dashboards and data apps
