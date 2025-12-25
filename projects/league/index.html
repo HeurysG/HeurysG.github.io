@@ -20,20 +20,29 @@
             <h1>League of Legends Match Outcome</h1>
           </header>
 
-          <p>End-to-end modeling of match outcomes using player and team features. This project includes a data pipeline, feature engineering, model training, validation, and a final report.</p>
+          <p>End-to-end modeling of League of Legends match outcomes using player and team objectives. Covers exploratory data analysis, Random Forests, Gradient Boosting (GBM), cross-validation, and feature importance to explain what drives wins.</p>
 
-          <h2>Repo and artifacts</h2>
-          <ul>
-            <li><a href="LINK_TO_CODE">Code</a></li>
-            <li><a href="LINK_TO_REPORT">Report (PDF)</a></li>
+          <h2>Artifacts</h2>
+          <ul class="actions">
+            <li><a href="ISyE_7406_Final_Report.pdf" class="button primary icon solid fa-file-pdf">View report (PDF)</a></li>
+            <li><a href="League_Match_Outcome_Notebook.ipynb" class="button icon solid fa-download">Download notebook</a></li>
           </ul>
 
-          <h2>Methods</h2>
-          <p>Model family, cross validation, calibration, and feature importance. Why these choices fit the question.</p>
+          <h2>Report preview</h2>
+          <p>Browse the full PDF below or open it in a new tab.</p>
+          <object data="ISyE_7406_Final_Report.pdf" type="application/pdf" width="100%" height="900px">
+            <p>Your browser cannot display PDFs inline. <a href="ISyE_7406_Final_Report.pdf">Download the report instead.</a></p>
+          </object>
 
-          <h2>Results</h2>
-          <p>Key metrics with confidence intervals. Example plot below:</p>
-          <span class="image fit"><img src="../../images/league-detail.jpg" alt="League project details" /></span>
+          <h2>Notebook</h2>
+          <p>The notebook includes data prep, model training, and evaluation. Download the <a href="League_Match_Outcome_Notebook.ipynb">ipynb</a> and open in Jupyter or VS Code to explore the code.</p>
+
+          <h2>Highlights</h2>
+          <ul>
+            <li>97% match outcome accuracy via GBM; Random Forest close at 96%.</li>
+            <li>Turret and inhibitor control are the strongest predictors of victory.</li>
+            <li>Feature importance and cross-validation guard against overfitting.</li>
+          </ul>
         </section>
       </div>
 
