@@ -20,23 +20,28 @@
             <h1>Experiment Analysis A/B/x</h1>
           </header>
 
-          <p>Growth-style experiment analysis. Designed and analyzed test groups, computed confidence intervals, applied CUPED for variance reduction, and ran Bayesian checks. Includes decision memo on whether to ship.</p>
+          <p>Growth-style experiment analysis for mobile games. Designed and analyzed test groups, computed confidence intervals, applied CUPED for variance reduction, and ran Bayesian checks. Includes decision memo on whether to ship.</p>
 
-          <h2>Repo and artifacts</h2>
-          <ul>
-            <li><a href="LINK_TO_CODE">Code</a></li>
-            <li><a href="LINK_TO_REPORT">Report (PDF)</a></li>
+          <h2>Artifacts</h2>
+          <ul class="actions">
+            <li><a href="../../analysis/cookie-cats.html" class="button primary icon solid fa-chart-line">View Cookie Cats results</a></li>
+            <li><a href="../../ab_testing_retention.ipynb" class="button icon solid fa-download">Download retention notebook</a></li>
+            <li><a href="../../analysis/retention_summary.csv" class="button icon solid fa-table">Summary CSV</a></li>
           </ul>
 
-          <h2>Design</h2>
-          <p>Primary and guardrail metrics, exposure rules, and unit of analysis.</p>
+          <h2>Cookie Cats retention (HTML)</h2>
+          <p>Interactive report for the Cookie Cats A/B test. If it doesn’t render inline, use the button above to open it directly.</p>
+          <iframe src="../../analysis/cookie-cats.html" width="100%" height="900" title="Cookie Cats A/B test results"></iframe>
 
-          <h2>Analysis</h2>
-          <p>ITT lift with confidence intervals, CUPED adjustment, sequential monitoring, and Bayesian posterior estimation.</p>
+          <h2>Notebook</h2>
+          <p>The notebook covers data prep, CUPED-adjusted lift, sequential monitoring, and decision memo outputs. Download the <a href="../../ab_testing_retention.ipynb">ipynb</a> to explore the code.</p>
 
-          <h2>Results</h2>
-          <p>Key figures and a final decision statement.</p>
-          <span class="image fit"><img src="../../images/abx-detail.jpg" alt="ABx project details" /></span>
+          <h2>Highlights</h2>
+          <ul>
+            <li>CUPED variance reduction to stabilize retention estimates.</li>
+            <li>Retention by version with confidence intervals and sequential checks.</li>
+            <li>Actionable recommendation to ship or hold based on lift and risk.</li>
+          </ul>
         </section>
       </div>
 
