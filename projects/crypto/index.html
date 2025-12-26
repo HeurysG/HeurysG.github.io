@@ -20,21 +20,38 @@
             <h1>Cryptocurrency Forecasting</h1>
           </header>
 
-          <p>Forecasting crypto prices using baseline models and error analysis. Includes comparisons across ARIMA, Prophet, and moving average approaches, with a discussion of limits and risks.</p>
+          <p>Forecasting crypto prices with a full-stack TradeCrypto app. Backend APIs feed ML forecasts and portfolio insights; the React client visualizes performance and suggestions.</p>
 
-          <h2>Repo and artifacts</h2>
-          <ul>
-            <li><a href="LINK_TO_CODE">Code</a></li>
-            <li><a href="LINK_TO_REPORT">Report (PDF)</a></li>
-            <li><a href="LINK_TO_DEMO">Demo</a></li>
+          <h2>Artifacts</h2>
+          <ul class="actions">
+            <li><a href="TradeCrypto_Code.zip" class="button primary icon solid fa-code">Download code (ZIP)</a></li>
+            <li><a href="TradeCrypto_Report.pdf" class="button icon solid fa-file-pdf">Read report (PDF)</a></li>
+            <li><a href="TradeCrypto_Poster.pdf" class="button icon solid fa-image">View poster (PDF)</a></li>
+            <li><a href="TradeCrypto_README.txt" class="button icon solid fa-book">README</a></li>
           </ul>
 
-          <h2>Methods</h2>
-          <p>Naive baseline, moving average, ARIMA, Prophet. Cross-validation, stability checks, and error metrics such as RMSE and MAE.</p>
+          <h2>Quick install (from README)</h2>
+          <ol>
+            <li>Download data to <code>data</code> folder (link in README).</li>
+            <li>Backend: <code>cd api && pip install -r requirements.txt && python server.py</code></li>
+            <li>Frontend: <code>cd client && npm install && npm start</code></li>
+            <li>Open <code>http://localhost:3000</code></li>
+          </ol>
 
-          <h2>Results</h2>
-          <p>Forecast accuracy comparison and plots of predictions vs actual values.</p>
-          <span class="image fit"><img src="../../images/crypto-detail.jpg" alt="Crypto project details" /></span>
+          <h2>Methods</h2>
+          <p>Forecasting with baselines, Prophet, and ARIMA; risk-aware portfolio suggestions; scenario analysis by market cap and risk tolerance.</p>
+
+          <h2>Highlights</h2>
+          <ul>
+            <li>Interactive portfolio insights and forecast visualizations.</li>
+            <li>Personalized risk profiles (conservative, moderate, aggressive).</li>
+            <li>End-to-end pipeline with React frontend and Python API backend.</li>
+          </ul>
+
+          <h2>Poster preview</h2>
+          <object data="TradeCrypto_Poster.pdf" type="application/pdf" width="100%" height="900px">
+            <p>Your browser cannot display PDFs inline. <a href="TradeCrypto_Poster.pdf">Download the poster instead.</a></p>
+          </object>
         </section>
       </div>
 
