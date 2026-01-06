@@ -20,7 +20,21 @@
             <h1>League of Legends Match Outcome</h1>
           </header>
 
-          <p>End-to-end modeling of League of Legends match outcomes using player and team objectives. Covers exploratory data analysis, Random Forests, Gradient Boosting (GBM), cross-validation, and feature importance to explain what drives wins.</p>
+          <h2>What problem I was curious about</h2>
+          <p>League of Legends matches feel chaotic, but they are not. I wanted to see if outcomes could be predicted reliably from objectives and team stats—and which actions actually decide games.</p>
+
+          <h2>What I did</h2>
+          <p>Cleaned and explored match data, then trained ensemble models (Gradient Boosting and Random Forests) on team objectives and performance features, using cross-validation to avoid overfitting.</p>
+
+          <h2>What I found</h2>
+          <p>Gradient Boosting hit ~97% accuracy, with Random Forests close behind. Objective control—especially turrets and inhibitors—dominated win prediction, far outweighing most individual stat noise.</p>
+
+          <h2>Why it matters</h2>
+          <ul>
+            <li>Translate a messy, real-world dataset into a clear prediction task.</li>
+            <li>Choose appropriate models and evaluate them rigorously.</li>
+            <li>Explain why the model works, not just report accuracy.</li>
+          </ul>
 
           <h2>Artifacts</h2>
           <ul class="actions">
