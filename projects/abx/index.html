@@ -21,19 +21,19 @@
           </header>
 
           <h2>What problem I was solving</h2>
-          <p>Product teams need clear ship-or-don’t-ship decisions, not just p-values. I analyzed a real A/B/x experiment to mirror how growth and game teams actually make calls.</p>
+          <p>Product teams need clear ship-or-don’t-ship decisions, not just p-values. Here, I experiment with a real A/B/x dataset to display how growth and game teams actually make calls.</p>
 
           <h2>What I did</h2>
           <p>Using mobile game retention data, I compared multiple variants to control, applied variance reduction with CUPED, monitored performance over time, and evaluated lift with proper confidence bounds.</p>
 
           <h2>What I found</h2>
-          <p>CUPED materially reduced variance, improving the ability to detect meaningful retention differences. The analysis led to a defensible recommendation instead of an ambiguous result.</p>
+          <p>The gate change did not affect early retention but reduced Day-7 retention by ~0.8 percentage points, a statistically significant decline in long-term engagement. The analysis led to a valuable recommendation instead of an ambiguous result.</p>
 
           <h2>Why it matters</h2>
           <ul>
-            <li>Experimental design beyond textbook A/B tests.</li>
-            <li>Noise reduction to improve decision quality.</li>
-            <li>Translating statistical output into product recommendations.</li>
+            <li>Real-world experimental design beyond textbook A/B tests.</li>
+            <li>Noise reduction to improve decision quality and reliability.</li>
+            <li>Translating statistical output into actionable product recommendations.</li>
           </ul>
 
           <h2>Artifacts</h2>
@@ -51,11 +51,7 @@
           <p>The notebook covers data prep, CUPED-adjusted lift, sequential monitoring, and decision memo outputs. Download the <a href="../../ab_testing_retention.ipynb">ipynb</a> to explore the code.</p>
 
           <h2>Highlights</h2>
-          <ul>
-            <li>CUPED variance reduction to stabilize retention estimates.</li>
-            <li>Retention by version with confidence intervals and sequential checks.</li>
-            <li>Actionable recommendation to ship or hold based on lift and risk.</li>
-          </ul>
+          <p>CUPED variance reduction cut retention noise enough to surface meaningful lift signals across variants. I tracked Day-1 and Day-7 retention with confidence bounds and sequential monitoring to avoid premature calls. The final recommendation balances lift, variance, and guardrails so product teams can make a clear ship-or-hold decision.</p>
         </section>
       </div>
 
