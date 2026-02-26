@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Amazon Web Scraper with Python - Heurys Grullon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../../index.html" class="logo">Back to Home</a>
+      </header>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1>Amazon Web Scraper with Python</h1>
+          </header>
+
+          <h2>What I was curious about</h2>
+          <p>I wanted a lightweight way to monitor product pricing over time and trigger a simple workflow when a tracked product moves into a target range.</p>
+
+          <h2>What I did</h2>
+          <p>I built a Python scraper that pulls product details, captures price snapshots, appends them to a local dataset, and supports repeatable checks for ongoing monitoring.</p>
+
+          <h2>Why it matters</h2>
+          <ul>
+            <li>Demonstrates practical automation from raw webpage data to trackable signals.</li>
+            <li>Shows basic pipeline thinking: extract, append, and monitor over time.</li>
+            <li>Useful foundation for lightweight pricing alerts and trend analysis.</li>
+          </ul>
+
+          <h2>Artifact</h2>
+          <ul class="actions">
+            <li><a href="/data/Amazon%20Web%20Scraper%20Project.ipynb" class="button primary icon solid fa-file-code">Download Notebook</a></li>
+          </ul>
+
+          <h2>Notebook preview</h2>
+          <p>Preview code cells from the notebook below. This window is scrollable.</p>
+          <pre id="notebook-preview" style="max-height: 520px; overflow: auto; background: #f7f7f7; border: 1px solid #ddd; padding: 1rem; white-space: pre;"><code>Loading notebook...</code></pre>
+        </section>
+      </div>
+
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>New York, New York</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:heurysg@gmail.com">heurysg@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/heurysgrullon/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="https://github.com/HeurysG" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Heurys Grullon</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+    </div>
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script>
+      (function () {
+        const preview = document.getElementById("notebook-preview");
+        if (!preview) return;
+
+        fetch("/data/Amazon%20Web%20Scraper%20Project.ipynb")
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to load notebook.");
+            return res.text();
+          })
+          .then((raw) => {
+            const nb = JSON.parse(raw);
+            const codeCells = (nb.cells || []).filter((cell) => cell.cell_type === "code");
+            const content = codeCells
+              .map((cell, idx) => {
+                const src = Array.isArray(cell.source) ? cell.source.join("") : String(cell.source || "");
+                return "# Code cell " + (idx + 1) + "\n" + src.trim();
+              })
+              .filter((block) => block.trim().length > 0)
+              .join("\n\n" + "-".repeat(80) + "\n\n");
+
+            preview.textContent = content || "No code cells found in notebook.";
+          })
+          .catch(() => {
+            preview.textContent = "Could not load notebook preview. Use the download button above to open the notebook.";
+          });
+      })();
+    </script>
+  </body>
+</html>
