@@ -1,0 +1,184 @@
+{
+  "raw_scores": {
+    "table": "raw_scores",
+    "row_count": 14371,
+    "columns": [
+      {
+        "name": "schedule_date",
+        "type": "DATE"
+      },
+      {
+        "name": "schedule_season",
+        "type": "BIGINT"
+      },
+      {
+        "name": "schedule_week",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "schedule_playoff",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "team_home",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "score_home",
+        "type": "BIGINT"
+      },
+      {
+        "name": "score_away",
+        "type": "BIGINT"
+      },
+      {
+        "name": "team_away",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_favorite_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "spread_favorite",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "over_under_line",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "stadium",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "stadium_neutral",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "weather_temperature",
+        "type": "BIGINT"
+      },
+      {
+        "name": "weather_wind_mph",
+        "type": "BIGINT"
+      },
+      {
+        "name": "weather_humidity",
+        "type": "BIGINT"
+      },
+      {
+        "name": "weather_detail",
+        "type": "VARCHAR"
+      }
+    ],
+    "min_max": {
+      "min_season": 1966,
+      "max_season": 2025,
+      "min_game_date": "1966-09-02",
+      "max_game_date": "2026-02-08"
+    },
+    "primary_key_candidates": {
+      "single_column": [],
+      "composite": [
+        [
+          "schedule_date",
+          "team_home",
+          "team_away"
+        ],
+        [
+          "schedule_season",
+          "schedule_week",
+          "team_home",
+          "team_away"
+        ]
+      ]
+    },
+    "null_pct": {
+      "schedule_date": 0.0,
+      "schedule_season": 0.0,
+      "schedule_week": 0.0,
+      "schedule_playoff": 0.0,
+      "team_home": 0.0,
+      "score_home": 0.0,
+      "score_away": 0.0,
+      "team_away": 0.0,
+      "team_favorite_id": 0.0003479229002852968,
+      "spread_favorite": 0.0003479229002852968,
+      "over_under_line": 0.17152598984065132,
+      "stadium": 0.0,
+      "stadium_neutral": 0.0,
+      "weather_temperature": 0.10507271588615963,
+      "weather_wind_mph": 0.10625565374712964,
+      "weather_humidity": 0.3934312156426136,
+      "weather_detail": 0.7692575325307912
+    }
+  },
+  "raw_teams": {
+    "table": "raw_teams",
+    "row_count": 44,
+    "columns": [
+      {
+        "name": "team_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_name_short",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_id_pfr",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_conference",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_division",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_conference_pre2002",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "team_division_pre2002",
+        "type": "VARCHAR"
+      }
+    ],
+    "min_max": {
+      "min_team_name": "Arizona Cardinals",
+      "max_team_name": "Washington Redskins"
+    },
+    "primary_key_candidates": {
+      "single_column": [
+        "team_name"
+      ],
+      "composite": [
+        [
+          "team_name",
+          "team_id"
+        ],
+        [
+          "team_name",
+          "team_id_pfr"
+        ]
+      ]
+    },
+    "null_pct": {
+      "team_name": 0.0,
+      "team_name_short": 0.0,
+      "team_id": 0.0,
+      "team_id_pfr": 0.0,
+      "team_conference": 0.0,
+      "team_division": 0.20454545454545456,
+      "team_conference_pre2002": 0.0,
+      "team_division_pre2002": 0.045454545454545456
+    }
+  }
+}

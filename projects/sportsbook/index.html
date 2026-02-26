@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Sportsbook Analysis - Heurys Grullon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <header id="header">
+        <a href="../../index.html" class="logo">Back to Home</a>
+      </header>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1>Sportsbook Analysis</h1>
+          </header>
+
+          <h2>Artifacts</h2>
+          <ul class="actions">
+            <li><a href="output/sportsbook_report.md" class="button primary icon solid fa-file-alt">View report (Markdown)</a></li>
+            <li><a href="output/sportsbook.duckdb" class="button icon solid fa-database">Download DuckDB</a></li>
+            <li><a href="output/promo_roi_summary.csv" class="button icon solid fa-table">Promo ROI summary (CSV)</a></li>
+          </ul>
+
+          <h2>Project highlights</h2>
+          <ul>
+            <li>SQL model with dimensions and facts for sportsbook economics.</li>
+            <li>Behavior-based churn simulation with segment-level hazard logic.</li>
+            <li>Promo offer framework with 4/13/26-week net profit, cost efficiency, and payback tracking.</li>
+          </ul>
+
+          <h2>What I was curious about</h2>
+          <p>Sportsbooks look simple from the outside: people place bets, the book pays winners, and keeps the rest. But once you zoom in, profit can swing hard week to week. I wanted to understand what really drives those swings, and whether promotions such as bonus bets bring in valuable users over time or just add cost over time.</p>
+
+          <h2>What I did</h2>
+          <p>I used real NFL game outcomes and built a simulation of a betting ledger on top of them, so every simulated bet still settles against real game results. I set up a simple warehouse-style model (teams and events as dimensions, bets and costs as facts), then simulated different customer types, betting behavior, payouts, and promo usage. From there, I used SQL to calculate handle, gross profit, net profit, hold, and margin, and broke those down by market, time, and customer segment.</p>
+
+          <h2>What I found</h2>
+          <p>Profit is concentrated. A small share of markets and user groups explains most of the upside and most of the downside. Promotions can look misleading if you only read one metric, so I used a simple scorecard: post-period net profit, promo cost, ROI at 4/13/26 weeks, and a cumulative payback curve.</p>
+
+          <h2>Why it matters</h2>
+          <p>This is the type of work I want to do day to day: connect user activity to P&amp;L, explain what changed in plain English, and evaluate promos as an investment rather than a guess. The customer behavior is synthetic, so this is not claiming a real-world causal result. The point is to show how I structure the problem, build the analysis, and turn it into decisions.</p>
+
+          <h2>Headline KPIs</h2>
+          <ul>
+            <li>Handle: <strong>$3.83M</strong></li>
+            <li>Gross Profit: <strong>$185K</strong></li>
+            <li>Net Profit: <strong>$77K</strong></li>
+            <li>Hold: <strong>4.84%</strong></li>
+            <li>Margin: <strong>2.02%</strong></li>
+            <li>Promo net per user: <strong>-$2 -&gt; $19 -&gt; $28</strong> (4w/13w/26w)</li>
+          </ul>
+
+          <h2>Chart preview</h2>
+          <p>Retention and promo economics outputs generated from the synthetic ledger.</p>
+
+          <h3>Topline sportsbook economics</h3>
+          <p>This snapshot summarizes handle, gross profit, key costs, and net profit so the P&amp;L story is clear before cohort analysis.</p>
+          <span class="image fit"><img src="output/topline_economics_summary.png" alt="Topline sportsbook economics including handle, gross profit, costs, and net profit" /></span>
+
+          <h3>Main retention view (who is still around)</h3>
+          <p>This is the primary retention chart. It shows the share of each segment still active at day 7, day 30, day 60, and day 90.</p>
+          <span class="image fit"><img src="output/retention_curve_by_segment.png" alt="Still-active retention by segment at 7, 30, 60, and 90 days" /></span>
+
+          <h3>Supportive view: cumulative return by day 7/30/90</h3>
+          <p>Cumulative return % means the share of users who came back at least once by that checkpoint, not users active exactly on that day.</p>
+          <span class="image fit"><img src="output/retention_cumulative_supportive.png" alt="Cumulative return by day 7, 30, and 90 as a supporting retention view" /></span>
+
+          <h3>Promo economics</h3>
+          <p>Promo-tagged bets can be lower margin in isolation, while promo-exposed users can still become profitable over time through repeat non-promo activity.</p>
+          <p>Promo spend is intentionally conservative in this base run. In higher-budget scenarios, we expect weaker near-term ROI and later payback, with the potential for stronger long-term retention and revenue if targeting quality remains high.</p>
+          <span class="image fit"><img src="output/promo_pre_post_handle.png" alt="Promo pre versus post handle comparison" /></span>
+          <p>The payback curve tracks cumulative net profit after promo costs by week since first promo exposure. In this run, the curve crosses break-even early and then stays positive at a slower slope, showing payback with more gradual long-tail gains.</p>
+          <span class="image fit"><img src="output/promo_payback_curve.png" alt="Promo payback curve over weeks" /></span>
+
+          <h2>Limitations</h2>
+          <p>Customer and churn behavior are simulated, so outputs depend on model assumptions. In production, I would calibrate this against real event data and measure promo impact with randomized holdouts. I include this on purpose because good analysis should be clear about uncertainty.</p>
+        </section>
+      </div>
+
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>New York, New York</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:heurysg@gmail.com">heurysg@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/heurysgrullon/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="https://github.com/HeurysG" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Heurys Grullon</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+    </div>
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Data Cleaning in SQL - Heurys Grullon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+
+      <header id="header">
+        <a href="../../index.html" class="logo">Back to Home</a>
+      </header>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1>Data Cleaning in SQL</h1>
+          </header>
+
+          <h2>What I was curious about</h2>
+          <p>Raw housing data is usually not analysis-ready. I wanted to show a practical SQL workflow that turns messy records into a cleaner, more reliable table for downstream reporting and modeling.</p>
+
+          <h2>What I did</h2>
+          <p>I used SQL to standardize dates, fill missing addresses, split compound fields into separate columns, normalize categorical values, remove duplicates, and drop obsolete columns.</p>
+
+          <h2>Why it matters</h2>
+          <ul>
+            <li>Shows practical SQL transformation work beyond simple SELECT queries.</li>
+            <li>Improves data quality before analysis, dashboards, and modeling.</li>
+            <li>Demonstrates repeatable cleaning logic with clear before/after steps.</li>
+          </ul>
+
+          <h2>Artifact</h2>
+          <ul class="actions">
+            <li><a href="/data/data-cleaning-project.sql" class="button primary icon solid fa-file-code">Download SQL Script</a></li>
+          </ul>
+
+          <h2>SQL script preview</h2>
+          <p>Preview the full SQL script below. This window is scrollable.</p>
+          <pre id="sql-script-preview" style="max-height: 480px; overflow: auto; background: #f7f7f7; border: 1px solid #ddd; padding: 1rem; white-space: pre;"><code>Loading SQL script...</code></pre>
+
+          <h2>SQL highlights</h2>
+          <p><strong>1) Standardize date format</strong></p>
+<pre><code>ALTER TABLE NashvilleHousing
+ADD SaleDateConverted Date;
+
+UPDATE NashvilleHousing
+SET SaleDateConverted = CONVERT(Date, SaleDate);</code></pre>
+
+          <p><strong>2) Populate missing property addresses from matching ParcelID</strong></p>
+<pre><code>UPDATE a
+SET PropertyAddress = ISNULL(a.PropertyAddress, b.PropertyAddress)
+FROM PortfolioProject..NashvilleHousing a
+JOIN PortfolioProject..NashvilleHousing b
+  ON a.ParcelID = b.ParcelID
+ AND a.[UniqueID ] &lt;&gt; b.[UniqueID ]
+WHERE a.PropertyAddress IS NULL;</code></pre>
+
+          <p><strong>3) Split property and owner address fields into reusable columns</strong></p>
+<pre><code>ALTER TABLE NashvilleHousing ADD PropertySplitAddress NVARCHAR(255);
+ALTER TABLE NashvilleHousing ADD PropertySplitCity NVARCHAR(255);
+
+UPDATE NashvilleHousing
+SET PropertySplitAddress = SUBSTRING(PropertyAddress, 1, CHARINDEX(',', PropertyAddress) - 1),
+    PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) + 1, LEN(PropertyAddress));</code></pre>
+
+          <p><strong>4) Normalize SoldAsVacant values</strong></p>
+<pre><code>UPDATE NashvilleHousing
+SET SoldAsVacant = CASE
+  WHEN SoldAsVacant = 'Y' THEN 'Yes'
+  WHEN SoldAsVacant = 'N' THEN 'No'
+  ELSE SoldAsVacant
+END;</code></pre>
+
+          <p><strong>5) Remove duplicate rows</strong></p>
+<pre><code>WITH RowNumCTE AS (
+  SELECT *,
+         ROW_NUMBER() OVER (
+           PARTITION BY ParcelID, PropertyAddress, SalePrice, SaleDate, LegalReference
+           ORDER BY UniqueID
+         ) AS row_num
+  FROM PortfolioProject..NashvilleHousing
+)
+DELETE FROM RowNumCTE
+WHERE row_num &gt; 1;</code></pre>
+
+          <h2>Final cleanup step</h2>
+<pre><code>ALTER TABLE PortfolioProject..NashvilleHousing
+DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress, SaleDate;</code></pre>
+        </section>
+      </div>
+
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>New York, New York</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:heurysg@gmail.com">heurysg@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li><a href="https://www.linkedin.com/in/heurysgrullon/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="https://github.com/HeurysG" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Heurys Grullon</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+      </div>
+    </div>
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script>
+      (function () {
+        const preview = document.getElementById("sql-script-preview");
+        if (!preview) return;
+        fetch("/data/data-cleaning-project.sql")
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to load SQL file.");
+            return res.text();
+          })
+          .then((sqlText) => {
+            preview.textContent = sqlText;
+          })
+          .catch(() => {
+            preview.textContent = "Could not load SQL preview. Use the download button above to open the script.";
+          });
+      })();
+    </script>
+  </body>
+</html>

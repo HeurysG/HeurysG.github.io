@@ -1,0 +1,94 @@
+{
+  "churn_config": {
+    "base_weekly_churn": {
+      "sharp": 0.021,
+      "regular": 0.052500000000000005,
+      "casual": 0.084,
+      "promo_hunter": 0.126
+    },
+    "alpha": 0.05,
+    "churn_plateau_mult": 0.68,
+    "early_churn_mult": {
+      "sharp": 1.15,
+      "regular": 1.25,
+      "casual": 1.4,
+      "promo_hunter": 1.6
+    },
+    "mid_churn_mult": {
+      "regular": 1.8,
+      "casual": 2.16,
+      "promo_hunter": 2.61
+    },
+    "tail_churn_mult": {
+      "regular": 1.4850000000000003,
+      "casual": 1.87,
+      "promo_hunter": 2.2
+    },
+    "inactivity_mult": 2.7,
+    "negative_net_mult": 1.45,
+    "promo_hunter_post_promo_mult": 1.2,
+    "promo_hunter_post_promo_weeks": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "min_churn": 0.006,
+    "max_churn": 0.65
+  },
+  "calibration": {
+    "target": {
+      "sharp": {
+        "still_active_7d": 0.72,
+        "still_active_30d": 0.58,
+        "still_active_60d": 0.42,
+        "still_active_90d": 0.28
+      },
+      "regular": {
+        "still_active_7d": 0.4,
+        "still_active_30d": 0.2,
+        "still_active_60d": 0.08,
+        "still_active_90d": 0.03
+      },
+      "casual": {
+        "still_active_7d": 0.18,
+        "still_active_30d": 0.06,
+        "still_active_60d": 0.01,
+        "still_active_90d": 0.0
+      },
+      "promo_hunter": {
+        "still_active_7d": 0.14,
+        "still_active_30d": 0.03,
+        "still_active_60d": 0.0,
+        "still_active_90d": 0.0
+      }
+    },
+    "sample_achieved": {
+      "sharp": {
+        "still_active_7d": 0.7251908396946565,
+        "still_active_30d": 0.5801526717557252,
+        "still_active_60d": 0.45038167938931295,
+        "still_active_90d": 0.31297709923664124
+      },
+      "regular": {
+        "still_active_7d": 0.3535031847133758,
+        "still_active_30d": 0.19745222929936307,
+        "still_active_60d": 0.06369426751592357,
+        "still_active_90d": 0.022292993630573247
+      },
+      "casual": {
+        "still_active_7d": 0.18040089086859687,
+        "still_active_30d": 0.024498886414253896,
+        "still_active_60d": 0.0,
+        "still_active_90d": 0.0
+      },
+      "promo_hunter": {
+        "still_active_7d": 0.12264150943396226,
+        "still_active_30d": 0.02830188679245283,
+        "still_active_60d": 0.0,
+        "still_active_90d": 0.0
+      }
+    },
+    "score": 0.006195914030854473
+  }
+}
